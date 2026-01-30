@@ -1,12 +1,16 @@
 {
+  "homepage": "https://thekingofhearts777.github.io/Interactive-Maps/",
   "dependencies": {
     "leaflet": "^1.9.4"
   },
   "devDependencies": {
+    "gh-pages": "^6.3.0",
     "vite": "^7.3.1"
   },
   "scripts": {
     "dev": "vite",
+    "predeploy": "vite build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build"
   }
 }
