@@ -5,37 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Faerûn Map</title>
+
+    <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <!-- App styles -->
     <link rel="icon" href="Resources/favicon-32x32.png" type="image/x-icon">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <div id="container">
-        <!-- Control box on the left side -->
+
+        <!-- Control panel -->
         <div id="markerActions">
+
             <div class="section">
-                <button onclick="saveMarkersToServer()">Save Markers</button>
+                <button onclick="downloadMarkers()">Save Markers to File</button>
             </div>
+
+            <div class="section" style="justify-content: center;">
+                <p>JSON Marker data</p>
+                <input type="file" id="markerFileInput" accept=".json">
+            </div>
+
             <div class="section">
-                <input type="text" id="loadFilename" placeholder="Enter filename to load">
-                <button onclick="loadMarkersFromServer(document.getElementById('loadFilename').value)">Load
-                    Markers</button>
+                <p>Upload Custom Map Image</p>
+                <input type="file" id="mapImageInput" accept=".png,.jpg,.jpeg">
             </div>
+
             <div class="section">
                 <button onclick="clearMarkers()">Clear Map</button>
             </div>
+
             <div class="section">
                 <input type="text" id="searchInput" placeholder="Search by Place Name">
                 <button onclick="searchMarker()">Search</button>
             </div>
+
+            <div class="section">
+                <p>
+                    Click on the map to add markers.<br>
+                    Select a marker and press Delete to remove it.
+                </p>
+            </div>
+
         </div>
 
-        <!-- Map container -->
+        <!-- Map -->
         <div id="map"></div>
+
     </div>
 
+    <!-- App script -->
     <script src="script.js"></script>
 </body>
 
