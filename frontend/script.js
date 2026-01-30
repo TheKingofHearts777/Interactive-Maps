@@ -13,7 +13,7 @@ const bounds = [[0, 0], [6798, 9800]];
 let mapImageOverlay = null;
 
 // Default map image
-setMapImage("/Resources/faerun_map.jpg");
+setMapImage("Resources/faerun_map.jpg");
 
 map.fitBounds(bounds);
 map.setMaxBounds(bounds);
@@ -245,7 +245,7 @@ function downloadMarkers() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "faerun-markers.json";
+    a.download = "map-markers.json";
     a.click();
 
     URL.revokeObjectURL(url);
