@@ -1,0 +1,99 @@
+:root {
+    --panel-bg: rgba(20, 20, 24, 0.85);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --accent: #c9aa71;
+    --text: #f2f2f2;
+    --muted: #b0b0b0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    background: #000;
+}
+
+#container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#markerActions {
+    width: 240px;
+    padding: 16px;
+    background: var(--panel-bg);
+    backdrop-filter: blur(6px);
+    border-right: 1px solid var(--panel-border);
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    z-index: 1000;
+}
+
+#markerActions h2 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+#markerActions .section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#markerActions input {
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--panel-border);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--text);
+    outline: none;
+}
+
+#markerActions input::placeholder {
+    color: var(--muted);
+}
+
+#markerActions button {
+    padding: 9px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--panel-border);
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+#markerActions button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#markerActions button:active {
+    transform: translateY(1px);
+}
+
+#map {
+    flex-grow: 1;
+    background: #000;
+}
+
+.leaflet-tooltip {
+    background: rgba(20, 20, 24, 0.9);
+    color: var(--text);
+    border: 1px solid var(--panel-border);
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.leaflet-tooltip-top::before {
+    border-top-color: rgba(20, 20, 24, 0.9);
+}

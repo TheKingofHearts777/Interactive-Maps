@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Faerûn Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="icon" href="Resources/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="container">
+        <!-- Control box on the left side -->
+        <div id="markerActions">
+            <div class="section">
+                <button onclick="saveMarkersToServer()">Save Markers</button>
+            </div>
+            <div class="section">
+                <input type="text" id="loadFilename" placeholder="Enter filename to load">
+                <button onclick="loadMarkersFromServer(document.getElementById('loadFilename').value)">Load
+                    Markers</button>
+            </div>
+            <div class="section">
+                <button onclick="clearMarkers()">Clear Map</button>
+            </div>
+            <div class="section">
+                <input type="text" id="searchInput" placeholder="Search by Place Name">
+                <button onclick="searchMarker()">Search</button>
+            </div>
+        </div>
+
+        <!-- Map container -->
+        <div id="map"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
