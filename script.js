@@ -245,7 +245,7 @@ function downloadMarkers() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "map-markers.json";
+    a.download = document.getElementById("filenameInput").value.trim() || "markers.json";
     a.click();
 
     URL.revokeObjectURL(url);
