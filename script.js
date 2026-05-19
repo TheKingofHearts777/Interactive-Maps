@@ -22,7 +22,7 @@ let markerMap = {}; // id -> Leaflet marker
 let selectedMarker = null;
 
 // Default map image
-setMapImage(localStorage.getItem("savedMapImage") || "map.jpg");
+setMapImage(localStorage.getItem("savedMapImage") || "Resources\\faerun_map.jpg");
 
 map.fitBounds(bounds);
 map.setMaxBounds(bounds);
