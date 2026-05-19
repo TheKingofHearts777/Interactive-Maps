@@ -68,6 +68,7 @@ function setMapImage(src) {
 
     mapImageOverlay = L.imageOverlay(src, bounds, { opacity: 0.7 });
     mapImageOverlay.addTo(map);
+    persist();
 }
 
 // Load user supplied image
