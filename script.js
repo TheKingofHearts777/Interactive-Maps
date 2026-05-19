@@ -12,20 +12,21 @@ const bounds = [[0, 0], [6798, 9800]];
 
 let mapImageOverlay = null;
 
-// Default map image
-setMapImage("Resources/faerun_map.jpg");
-
-map.fitBounds(bounds);
-map.setMaxBounds(bounds);
-map.options.maxBoundsViscosity = 1.0;
-
 // --------------------
 // State
 // --------------------
 
-let savedMarkers = loadFromLocalStorage();
+let savedMarkers = loadMarkersFromLocalStorage();
+let savedMapImage = loadMapImageFromLocalStorage();
 let markerMap = {}; // id -> Leaflet marker
 let selectedMarker = null;
+
+// Default map image
+setMapImage(localStorage.getItem("savedMapImage") || "map.jpg");
+
+map.fitBounds(bounds);
+map.setMaxBounds(bounds);
+map.options.maxBoundsViscosity = 1.0;
 
 // --------------------
 // Utilities
@@ -33,13 +34,22 @@ let selectedMarker = null;
 
 function persist() {
     localStorage.setItem("savedMarkers", JSON.stringify(savedMarkers));
+    localStorage.setItem("savedMapImage", mapImageOverlay ? mapImageOverlay._url : "");
 }
 
-function loadFromLocalStorage() {
+function loadMarkersFromLocalStorage() {
     try {
         return JSON.parse(localStorage.getItem("savedMarkers")) || [];
     } catch {
         return [];
+    }
+}
+
+function loadMapImageFromLocalStorage() {
+    try {
+        return localStorage.getItem("savedMapImage");
+    } catch {
+        return null;
     }
 }
 
